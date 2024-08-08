@@ -1,6 +1,6 @@
 from django.db import models
 from .category import Category
-from .subcategry import SubCategory
+from .subcategory import SubCategory
 from .customer import Customer
 
 from django.utils import timezone

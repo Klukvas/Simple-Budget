@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Sum
 
 
-from sb.forms import CreateCategoryForm
+from sb.forms import CategoryForm
 
 from sb.models import Category
 
@@ -41,7 +41,7 @@ class CategoryCreateView(LoginRequiredMixin, CreateView):
     login_url = "/simple-budget/login/"
 
     model = Category
-    form_class = CreateCategoryForm
+    form_class = CategoryForm
     template_name = 'sb/category/create.html'
     success_url = reverse_lazy('sb:categories')
 
@@ -60,7 +60,7 @@ class CategoryUpdateView(LoginRequiredMixin, UpdateView):
     login_url = "/simple-budget/login/"
 
     model = Category
-    form_class = CreateCategoryForm
+    form_class = CategoryForm
     template_name = 'sb/category/detail.html'
     success_url = reverse_lazy('sb:categories')
 

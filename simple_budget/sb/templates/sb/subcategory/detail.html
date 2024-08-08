@@ -1,24 +1,18 @@
 {% extends "sb/base.html" %}
-
+{% load static %}
 {% block title %}{{ subcategory.name }}{% endblock %}
 
 {% block content %}
-  <h2>Subategory Details</h2>
-  
-  <table>
-    <tr>
-      <th>Name:</th>
-      <td>{{ subcategory.name }}</td>
-    </tr>
-    <tr>
-      <th>Max Allowed Spend:</th>
-      <td>{{ subcategory.max_allowed_spend }}</td>
-    </tr>
-    <tr>
-        <th>Category:</th>
-        <td>{{ subcategory.category }}</td>
-      </tr>
-  </table>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/create-form.css' %}">
 
-  <a href="{% url 'sb:subcategories' %}">Back to Categories List</a>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update</button>
+  </form>
+
+  <div class="form-footer">
+    <a href="{% url 'sb:subcategories' %}">Back to Subcategories List</a>
+  </div>
+  
 {% endblock %}

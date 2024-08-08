@@ -4,7 +4,7 @@ from .views import (
 
     CategoryListView, CategoryCreateView, CategoryDeleteView, CategoryUpdateView,
 
-    SubcategoryListView, SubCategoryCreateView, GetSubcategoriesView, SubcategoryDetailView, SubcategoryDeleteView,
+    SubcategoryListView, SubCategoryCreateView, GetSubcategoriesView, SubcategoryDeleteView, SubCategoryUpdateView,
 
     SpendListView, SpendCreateView,
 
@@ -32,7 +32,7 @@ urlpatterns = [
 
     path('subcategories/', SubcategoryListView.as_view(), name='subcategories'),
     path('subcategory/create/', SubCategoryCreateView.as_view(), name='subcategory_create'),
-    path('subcategory/<int:pk>/', SubcategoryDetailView.as_view(), name='subcategory_detail'),
+    path('subcategory/<int:pk>/', SubCategoryUpdateView.as_view(), name='subcategory_detail'),
     path('subcategory/<int:pk>/delete/', SubcategoryDeleteView.as_view(), name='subcategory_delete'),
 
 

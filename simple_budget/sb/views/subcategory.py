@@ -1,6 +1,6 @@
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import DeleteView, UpdateView
 
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import ValidationError
@@ -13,6 +13,7 @@ from sb.forms import SubCategoryForm
 from sb.models import SubCategory, Category
 from django.http import JsonResponse
 from django.db.models import Sum
+from sb.models.subcategory import SubCategory
 
 
 class SubcategoryListView(LoginRequiredMixin, ListView):
@@ -89,16 +90,16 @@ class GetSubcategoriesView(LoginRequiredMixin, View):
         data = {'subcategories': list(subcategories.values('id', 'name'))}
         return JsonResponse(data)
 
-class SubcategoryDetailView(LoginRequiredMixin, DetailView):
+
+class SubCategoryUpdateView(LoginRequiredMixin, UpdateView):
     login_url = "/simple-budget/login/"
 
     model = SubCategory
+    form_class = SubCategoryForm
     template_name = 'sb/subcategory/detail.html'
     context_object_name = 'subcategory'
+    success_url = reverse_lazy('sb:subcategories')
 
-    def get_object(self, queryset=None):
-        pk = self.kwargs.get('pk')
-        return get_object_or_404(SubCategory, pk=pk)
 
 class SubcategoryDeleteView(LoginRequiredMixin, DeleteView):
     login_url = "/simple-budget/login/"

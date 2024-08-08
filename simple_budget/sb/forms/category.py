@@ -1,7 +1,7 @@
 from django import forms
 from sb.models import Category
 
-class CreateCategoryForm(forms.ModelForm):
+class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = ['name', 'max_allowed_spend']

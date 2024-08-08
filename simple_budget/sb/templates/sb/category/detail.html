@@ -9,20 +9,20 @@
     {% csrf_token %}
     {{ form.as_p }}
     <h3>Related Subcategories</h3>
-    
-    <ul>
+
+    <div class="list-container">
       {% for subcategory in subcategories %}
-        <li>{{ subcategory.name }}</li>
+        <a class="list-component" href="{% url 'sb:subcategory_detail' subcategory.pk %}">{{ subcategory.name }}</a>
       {% empty %}
-        <li>No subcategories available.</li>
+        <p>No subcategories available.</p>
       {% endfor %}
-    </ul>
+    </div>
     
     <button type="submit">Update</button>
   </form>
 
-
+  <div class="form-footer">
+    <a href="{% url 'sb:categories' %}">Back to Categories List</a>
+  </div>
   
-
-  <a href="{% url 'sb:categories' %}">Back to Categories List</a>
 {% endblock %}

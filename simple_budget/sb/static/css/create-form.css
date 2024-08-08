@@ -50,3 +50,21 @@ form button:hover {
     justify-content: center;
     margin: 15px 5px 15px 5px;
 }
+.list-container{
+    display: flex;
+    gap: 5px;
+    margin: 5px 0px 5px 0px;
+}
+
+.list-component{
+    background-color: bisque;
+    padding: 4px;
+    border-radius: 10px;
+    border: 1px solid #007bff;
+    text-decoration: none;
+    color: black;
+}
+
+.list-component:hover{
+    background-color: rgb(235, 210, 178);
+}
