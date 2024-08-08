@@ -1,0 +1,22 @@
+{% extends "sb/base.html" %}
+{% load static %}
+
+{% block content %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/create-form.css' %}">
+
+  <div class="form-name">
+    <h2>Login</h2>
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+  <button type="submit">Вход</button>
+  </form>
+  
+  <div class="form-footer">
+    <p>Still do not have an account? <a href="{% url 'sb:signup' %}" >Create an account</a></p>
+  </div>
+  
+
+{% endblock %}

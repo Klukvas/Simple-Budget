@@ -1,0 +1,28 @@
+{% extends "sb/base.html" %}
+{% load static %}
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/create-form.css' %}">
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <h3>Related Subcategories</h3>
+    
+    <ul>
+      {% for subcategory in subcategories %}
+        <li>{{ subcategory.name }}</li>
+      {% empty %}
+        <li>No subcategories available.</li>
+      {% endfor %}
+    </ul>
+    
+    <button type="submit">Update</button>
+  </form>
+
+
+  
+
+  <a href="{% url 'sb:categories' %}">Back to Categories List</a>
+{% endblock %}

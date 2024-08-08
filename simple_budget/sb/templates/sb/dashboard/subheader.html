@@ -1,0 +1,14 @@
+{% extends "sb/base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard/subheader.css' %}">
+
+    <div class="sub-header">
+        <span><a href="{% url 'sb:current_month_spends' %}">Current month spends</a></span>
+        <span><a href="{% url 'sb:compare_previous_month' %}">Compare Previous Month</a></span>
+    </div>
+
+    {% block dashboard %}
+    {% endblock %}
+
+{% endblock %}

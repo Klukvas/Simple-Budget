@@ -1,0 +1,52 @@
+/* Add this CSS to your static file, for example, static/css/forms.css */
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form .form-control {
+    width: 100%;  /* Ensure all input fields are 100% width of the form container */
+    box-sizing: border-box;  /* Include padding and border in the element's total width and height */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+
+.form-name{
+    display: flex;
+    justify-content: center;
+    margin: 15px 5px 15px 5px;
+}
+
+.form-footer{
+    display: flex;
+    justify-content: center;
+    margin: 15px 5px 15px 5px;
+}

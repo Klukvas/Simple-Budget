@@ -1,0 +1,69 @@
+{% extends "sb/base.html" %}
+
+{% load static %}
+{% block content %}
+
+  <div class="tab-title">
+    
+    <h2>Categories List</h2>
+    
+    <div>
+      <a href="{% url 'sb:category_create' %}" class="create-new-btn">Add New Category</a>
+    </div>
+  
+  </div>
+  
+  <div class="total-block">
+
+    <div class="total-content">
+      <p>Total Categories: {{ total_categories_count }}</p>
+    </div>
+    
+    <div class="total-content">
+      <p>Total Max Allowed Spend: {{ total_max_allowed }}</p>
+    </div>
+    
+  </div>
+
+  <table class="list-view-table">
+    <thead>
+      <tr>
+        <th>Category Name</th>
+        <th>Max Allowed Spend</th>
+        <th>Subcategories</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for category in categories %}
+        <tr>
+          <td><a href="{% url 'sb:category_detail' category.pk %}">{{ category.name }}</a></td>
+          {% if category.max_allowed_spend %}
+            <td>{{ category.max_allowed_spend }}</td>
+          {% else %}
+            <td>-----</td>
+          {% endif %}
+          <td>
+            <ul>
+              {% for sub_category in category.sub_categories.all %}
+                <li class="subcategory"><a href="{% url 'sb:subcategory_detail' sub_category.pk %}">{{ sub_category.name }}</a></li>
+              {% empty %}
+                <li>No subcategories available.</li>
+              {% endfor %}
+            </ul>
+          </td>
+          <td>
+            <form action="{% url 'sb:category_delete' category.pk %}" method="post" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit" class="delete-btn" onclick="return confirm('Are you sure you want to delete this category?');">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No categories available.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

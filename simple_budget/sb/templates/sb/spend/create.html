@@ -1,0 +1,17 @@
+{% extends "sb/base.html" %}
+{% load static %}
+{% block content %}
+    <script src="{% static 'js/spend_form.js' %}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/create-form.css' %}">
+
+    <div class="form-name">
+      <h2>Add new spend</h2>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+{% endblock %}

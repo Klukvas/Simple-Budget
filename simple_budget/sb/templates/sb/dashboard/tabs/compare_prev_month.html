@@ -1,0 +1,18 @@
+{% extends "sb/dashboard/subheader.html" %}
+{% load static %}
+{% block dashboard %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
+    
+    <h1>Spend Chart</h1>
+    {% if graph_div %}
+        <div id="chart_div">{{ graph_div|safe }}</div>
+        <p id="no_data_message" style="display: none;">No data available for the selected date range.</p>
+    {% else %}
+        <!-- Display message if no data is available -->
+        <p id="no_data_message">No data available for the selected date range.</p>
+        <div id="chart_div" style="display: none;"></div>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+/* Add this to your CSS file, e.g., table.css or a separate CSS file */
+
+.sub-header {
+  padding: 10px 20px; /* Add some padding around the header */
+  background-color: #f8f9fa; /* Light background color */
+  border-bottom: 2px solid #dee2e6; /* Subtle border at the bottom */
+}
+
+.sub-header span {
+  margin-right: 20px; /* Space between links */
+}
+
+.sub-header a {
+  text-decoration: none; /* Remove underline from links */
+  color: #007bff; /* Primary color for the links */
+  font-weight: bold; /* Make the link text bold */
+  font-size: 16px; /* Set font size */
+}
+
+.sub-header a:hover {
+  color: #0056b3; /* Darker color on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+.sub-header a:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5); /* Add custom focus outline */
+}

@@ -1,0 +1,67 @@
+/* table.css */
+.list-view-actions {
+  margin-bottom: 20px;
+}
+
+.create-new-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.create-new-btn:hover {
+  background-color: #0056b3;
+}
+
+.list-view-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.list-view-table th, .list-view-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.list-view-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.list-view-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.list-view-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.list-view-table a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.list-view-table a:hover {
+  text-decoration: underline;
+}
+
+.list-view-table ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-view-table ul li {
+  margin: 5px 0;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+ 
+}

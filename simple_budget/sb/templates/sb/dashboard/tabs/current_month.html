@@ -1,0 +1,54 @@
+{% extends "sb/dashboard/subheader.html" %}
+{% load static %}
+{% block dashboard %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard/max_spend.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/charts.css' %}">
+
+
+
+    
+    {% if by_category_chart %}
+        <h1>Spends by current month chart</h1>
+        <div id="chart_div">{{ by_category_chart|safe }}</div>
+        <p id="no_data_message" style="display: none;">No data available for the selected date range.</p>
+    {% else %}
+        <!-- Display message if no data is available -->
+        <p id="no_data_message">No data available for the selected date range.</p>
+        <div id="chart_div" style="display: none;"></div>
+    {% endif %}
+    
+    {% if spends %}
+      <table class="list-view-table">
+          <thead>
+            <tr>
+              <th>Category Name</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for spend in spends %}
+              <tr>
+                <td>{{ spend.category_name }}</td>
+                <td>{{ spend.total_amount }}</td>
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="5">No categories available.</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+    {% endif %}
+
+    {% if max_spend_charts %}      
+      <h2>Category Spending Gauge Charts</h2>
+      <div class="charts-container">
+        {% for chart in max_spend_charts %}
+            <div class="chart">{{ chart|safe }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+{% endblock %}

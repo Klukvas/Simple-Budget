@@ -1,0 +1,16 @@
+{% extends "sb/base.html" %}
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/create-form.css' %}">
+
+  <div class="form-name">
+    <h2>Create a new Category</h2>
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create</button>
+  </form>
+  
+{% endblock %}
