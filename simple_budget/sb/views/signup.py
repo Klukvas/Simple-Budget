@@ -1,5 +1,5 @@
 from ..models.customer import Customer
-from ..forms.registration import CustomerCreationForm
+from ..forms.signup import CustomerCreationForm
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.contrib.auth import login, authenticate

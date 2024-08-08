@@ -1,24 +1,83 @@
-/* table.css */
-.list-view-actions {
-  margin-bottom: 20px;
+.list-flex{
+  display: flex;
+  flex-direction: column;
 }
 
-.create-new-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
+/* Table header */
+
+.header-block{
+  display: flex;
+  justify-content: center;
+}
+
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  margin: 5px 15px 5px 15px;
+  padding: 5px;
+}
+
+.header-container h2{
+  text-align: center;
+}
+
+/* End Table header */
+
+/* Table totals */
+
+.total-block {
+  display: flex;
+  justify-content: center;
+  padding: 5px 15px 5px 15px;
+}
+
+.total-container{
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.total-content {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
   border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  text-align: center;
+  
+  padding: 10px 20px;
+  flex: 1;
+
 }
 
-.create-new-btn:hover {
-  background-color: #0056b3;
+.total-content p {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+/* End Table Totals */
+
+/* Table */
+
+.table-block{
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.table-container{
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
 }
 
 .list-view-table {
-  width: 100%;
   border-collapse: collapse;
+  width: 100%;
+
 }
 
 .list-view-table th, .list-view-table td {
@@ -58,10 +117,4 @@
   margin: 5px 0;
 }
 
-.delete-btn {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 5px 10px;
- 
-}
+/* End table */

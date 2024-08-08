@@ -1,16 +1,26 @@
-/* table.css or a separate CSS file */
+/* Create button */
 .create-new-btn {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .create-new-btn:hover {
-    background-color: #0056b3;
-  }
-  
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+
+.create-new-btn:hover {
+  background-color: #0056b3;
+}
+/* End create button */
+
+/* Delete button */
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+}
+
+/* End Delete button */

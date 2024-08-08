@@ -3,45 +3,59 @@
 {% load static %}
 {% block content %}
   
+<div class="list-flex">
   
+
+  <div class="header-block">
+    <div class="header-container">
+      
+      <div class="header-title">
+        <h2>Spend List</h2>
+      </div>
+
+      <div>
+        <a href="{% url 'sb:spend_create' %}" class="create-new-btn">Add new spend</a>
+      </div>
   
-  <div class="tab-title">
-
-    <h2>Categories List</h2>
-
-    <div>
-      <a href="{% url 'sb:spend_create' %}" class="create-new-btn">Add new spend</a>
     </div>
-  
+  </div>
+
+  <div class="table-block">
+
+    <div class="table-container">
+      <table class="list-view-table">
+        <thead>
+          <tr>
+            <th>Category Name</th>
+            <th>Subcategory Name</th>
+            <th>Amount</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for spend in spends %}
+            <tr>
+              <td>{{ spend.category }}</td>
+              {% if spend.subcategory %}
+                <td>{{ spend.subcategory }}</td>
+              {% else %}
+                <td>-------</td>
+              {% endif %}
+              <td>{{ spend.amount }}</td>
+              <td>{{ spend.date }}</td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="5">No categories available.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
 
   </div>
 
-  <table class="list-view-table">
-    <thead>
-      <tr>
-        <th>Category Name</th>
-        <th>Subcategory Name</th>
-        <th>Amount</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for spend in spends %}
-        <tr>
-          <td>{{ spend.category }}</td>
-          {% if spend.subcategory %}
-            <td>{{ spend.subcategory }}</td>
-          {% else %}
-            <td>-------</td>
-          {% endif %}
-          <td>{{ spend.amount }}</td>
-          <td>{{ spend.date }}</td>
-        </tr>
-      {% empty %}
-        <tr>
-          <td colspan="5">No categories available.</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+</div>
+
+
 {% endblock %}
