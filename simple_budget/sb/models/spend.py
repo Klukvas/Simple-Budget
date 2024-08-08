@@ -64,8 +64,8 @@ class SpendQuerySet(models.QuerySet):
             .order_by('category_name')
 
 class Spend(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, related_name='spends')
-    subcategory = models.ForeignKey(SubCategory, on_delete=models.DO_NOTHING, related_name='spends', null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='spends', null=True)
+    subcategory = models.ForeignKey(SubCategory, on_delete=models.SET_NULL, related_name='spends', null=True, blank=True)
     amount = models.FloatField()
     date = models.DateField(default=timezone.now)
     user = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='spends')
